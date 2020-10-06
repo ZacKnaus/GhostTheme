@@ -40,7 +40,12 @@ into the {body} of the default.hbs template --}}
 {{> header background=@site.cover_image}}
 
 <main class="main-wrap">
-    <div id="instagram-feed-photos" class="instagram_feed"></div>
+
+  {{!-- Inject styles of the hero image to make it responsive --}}
+  {{> hero background=@site.cover_image}}
+  <div class="m-hero__content" data-aos="fade-down">
+
+      <div id="instagram-feed-photos" class="instagram_feed"></div>
 
 
     <script src="{{asset "js/InstagramFeed.min.js"}}"></script>
@@ -63,10 +68,6 @@ into the {body} of the default.hbs template --}}
          })();
       </script>
 
-
-  {{!-- Inject styles of the hero image to make it responsive --}}
-  {{> hero background=@site.cover_image}}
-  <div class="m-hero__content" data-aos="fade-down">
     <h1 class="m-hero-title bigger">{{@site.title}}</h1>
     {{#if @site.description}}
       <p class="m-hero-description bigger">{{@site.description}}</p>
